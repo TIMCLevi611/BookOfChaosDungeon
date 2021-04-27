@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody playerRb;
+    private Rigidbody playerRb; 
     private GameObject camra;
-    private float speed = 50f;
-    private Vector3 camraOffset = new Vector3(0, 6, 0);
+    private float speed = 50f; //How fast the player moves
+    private Vector3 camraOffset = new Vector3(0, 6, 0); //the offset of the camra to the player
+    private bool isOnGround = true; //If they are touching the ground
+    private float jumpForce = 350f; //How high they can jump
+    
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = GetComponent<Rigidbody>();
-        camra = GameObject.Find("Main Camera");
-        camra.transform.Translate(transform.position + camraOffset);
+        playerRb = GetComponent<Rigidbody>(); //Connects the player Rigidbody to playerRb
+        camra = GameObject.Find("Main Camera"); //Connects the main camra to camra
+        camra.transform.Translate(transform.position + camraOffset); //Sets starting position of the camra
+        GetComponent<MeshRenderer>().enabled = false; //Makes player invisible
     }
 
     // Update is called once per frame
@@ -21,23 +25,53 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
         MoveCamra();
-        
     }
 
+    /*
+     * Moves the player
+     */
     public void MovePlayer()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        transform.Translate(Vector3.forward * speed * verticalInput * Time.deltaTime);
-        transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * verticalInput * Time.deltaTime); //Moves the player on the x axis
+        transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime); //Moves the player on the z axis
+
+        Jump();
+    }
+    
+    /**
+     * Lets the player jump if they are on the ground
+     */
+    public void Jump()
+    {
+        if (isOnGround && Input.GetKeyDown(KeyCode.Space)) //If on the ground and space is hit
+        {
+            isOnGround = false;
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); //Pushes the player in the y axis
+        }
     }
 
+    /**
+     * If body moves the camra will move
+     */
     public void MoveCamra()
     {
-        if (transform.position.x != camra.transform.position.x || transform.position.z != camra.transform.position.z)
+        if (transform.position != camra.transform.position + camraOffset)
         {
             camra.transform.position = transform.position + camraOffset;
+        }
+    }
+
+    /**
+     * If player collieds with stuff
+     */
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground")) //if the player is on the ground
+        {
+            isOnGround = true;
         }
     }
 }
