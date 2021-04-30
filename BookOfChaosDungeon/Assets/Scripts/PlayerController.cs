@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private float speed = 50f; //How fast the player moves
     private Vector3 camraOffset = new Vector3(0, 6, 0); //the offset of the camra to the player
     private bool isOnGround = true; //If they are touching the ground
-    private float jumpForce = 350f; //How high they can jump
+    private float jumpVelocity; //How high they can jump
     
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
         camra = GameObject.Find("Main Camera"); //Connects the main camra to camra
         camra.transform.Translate(transform.position + camraOffset); //Sets starting position of the camra
         GetComponent<MeshRenderer>().enabled = false; //Makes player invisible
+        jumpVelocity = 10.0f;
     }
 
     // Update is called once per frame
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
         if (isOnGround && Input.GetKeyDown(KeyCode.Space)) //If on the ground and space is hit
         {
             isOnGround = false;
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); //Pushes the player in the y axis
+            playerRb.velocity = Vector3.up * jumpVelocity; //Pushes the player in the y axis
         }
     }
 
@@ -65,7 +66,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /**
-     * If player collieds with stuff
+     * If player collieds with ground
      */
     private void OnCollisionEnter(Collision collision)
     {
