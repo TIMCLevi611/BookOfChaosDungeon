@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 camraOffset = new Vector3(0, 6, 0); //the offset of the camra to the player
     private bool isOnGround = true; //If they are touching the ground
     private float jumpVelocity; //How high they can jump
+    private OutsideDoor outsideDoor;
+    private Door door;
     
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,8 @@ public class PlayerController : MonoBehaviour
         camra = GameObject.Find("Main Camera"); //Connects the main camra to camra
         camra.transform.Translate(transform.position + camraOffset); //Sets starting position of the camra
         GetComponent<MeshRenderer>().enabled = false; //Makes player invisible
+        outsideDoor = GameObject.Find("OutsideDoor").GetComponent<OutsideDoor>(); //Connects PlayerController to OutsideDoor script
+        door = GameObject.Find("Door").GetComponent<Door>(); //Connects PlayerController to door script
         jumpVelocity = 10.0f;
     }
 
@@ -73,6 +77,16 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground")) //if the player is on the ground
         {
             isOnGround = true;
+        }
+
+        if (collision.gameObject.CompareTag("OutsideDoor")) //if the player is touching the outside door
+        {
+            outsideDoor.isMovingDown = true;
+        }
+
+        if (collision.gameObject.CompareTag("Door")) //if the player is touching the inside door
+        {
+            door.isMovingDown = true;
         }
     }
 }

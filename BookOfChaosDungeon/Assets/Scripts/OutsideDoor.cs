@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class OutsideDoor : MonoBehaviour
 {
-    public bool isMovingDown;
-    private int speed = 5;
+    public bool isMovingDown; //Is the door moving down after being touched
+    private int speed = 10; //How fast door goes down
+    private double limit; //How far the door can go down
+
     // Start is called before the first frame update
     void Start()
     {
         isMovingDown = false;
+        limit = transform.position.y - 58.76929;
     }
 
     // Update is called once per frame
@@ -18,22 +21,19 @@ public class OutsideDoor : MonoBehaviour
         MoveDown();
     }
 
+    /**
+     * Moves door down
+     */
     public void MoveDown()
     {
-        if (isMovingDown && transform.position.y > 21.23071)
+        if (isMovingDown && transform.position.y > limit) //If Move down is true and hasn't hit limit
         {
-            transform.Translate(Vector3.down * speed * Time.deltaTime);
+             transform.Translate(Vector3.down * speed * Time.deltaTime); //Moves the door
         }
-    }
 
-    /**
-     * If Door Collides with Player
-     */
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player")) //if the player is touching the door
+        else //If it hit the limit
         {
-            isMovingDown = true;
+            isMovingDown = false; 
         }
     }
 }
