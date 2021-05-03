@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ToScene : MonoBehaviour
 {
@@ -13,6 +14,14 @@ public class ToScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    /**
+     * Switches the scene to the next one.
+     */
+    public void SwitchSceneTo2()
+    {
+        SceneManager.LoadScene("Room1");
     }
 }

@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private float jumpVelocity; //How high they can jump
     private OutsideDoor outsideDoor;
     private Door door;
+    private ToScene toScene;
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false; //Makes player invisible
         outsideDoor = GameObject.Find("OutsideDoor").GetComponent<OutsideDoor>(); //Connects PlayerController to OutsideDoor script
         door = GameObject.Find("Door").GetComponent<Door>(); //Connects PlayerController to door script
+        toScene = GameObject.Find("Portal").GetComponent<ToScene>(); //Connects to the To scene script
         jumpVelocity = 10.0f;
     }
 
@@ -87,6 +89,11 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Door")) //if the player is touching the inside door
         {
             door.isMovingDown = true;
+        }
+
+        if (collision.gameObject.CompareTag("To2")) //If player touches portal to next place
+        {
+            toScene.SwitchSceneTo2();
         }
     }
 }
