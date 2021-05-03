@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Door
   - OutsideDoor
+  - Scene2
   layers:
   - Default
   - TransparentFX
