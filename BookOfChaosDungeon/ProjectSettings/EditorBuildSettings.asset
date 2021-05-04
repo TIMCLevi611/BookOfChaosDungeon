@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OutsideScene.unity
     guid: daaf276ad66057240a655ea7beeb6288
+  - enabled: 1
+    path: Assets/Scenes/Room1.unity
+    guid: 885e6bce4c813604195e128285d3f49a
   m_configObjects: {}

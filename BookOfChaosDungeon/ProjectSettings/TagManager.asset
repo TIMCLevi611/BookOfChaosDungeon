@@ -8,6 +8,8 @@ TagManager:
   - Door
   - OutsideDoor
   - To2
+  - To3
+  - Death
   layers:
   - Default
   - TransparentFX
