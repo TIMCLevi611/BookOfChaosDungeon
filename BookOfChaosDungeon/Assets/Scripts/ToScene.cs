@@ -20,8 +20,24 @@ public class ToScene : MonoBehaviour
     /**
      * Switches the scene to the next one.
      */
+    public void SwitchSceneTo1()
+    {
+        SceneManager.LoadScene("OutsideScene");
+    }
+
+    /**
+     * Switches the scene to the next one.
+     */
     public void SwitchSceneTo2()
     {
         SceneManager.LoadScene("Room1");
+    }
+
+    /**
+     * Switches the scene to the next one.
+     */
+    public void SwitchSceneTo3()
+    {
+        SceneManager.LoadScene("Room2");
     }
 }

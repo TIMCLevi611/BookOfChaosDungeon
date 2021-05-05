@@ -10,6 +10,8 @@ TagManager:
   - To2
   - To3
   - Death
+  - LDoor
+  - FallingWater
   layers:
   - Default
   - TransparentFX

@@ -12,15 +12,17 @@ public class PlayerController : MonoBehaviour
     private float jumpVelocity; //How high they can jump
     private OutsideDoor outsideDoor;
     private Door door;
+    private LockedDoor lDoor;
     private ToScene toScene;
     
     // Start is called before the first frame update
     void Start()
     {
+        lDoor = GameObject.Find("LockDoor").GetComponent<LockedDoor>(); //Connects PlayerController to door script
         playerRb = GetComponent<Rigidbody>(); //Connects the player Rigidbody to playerRb
         camra = GameObject.Find("Main Camera"); //Connects the main camra to camra
         camra.transform.Translate(transform.position + camraOffset); //Sets starting position of the camra
-        GetComponent<MeshRenderer>().enabled = false; //Makes player invisible
+        this.GetComponent<MeshRenderer>().enabled = false; //Makes player invisible
         outsideDoor = GameObject.Find("OutsideDoor").GetComponent<OutsideDoor>(); //Connects PlayerController to OutsideDoor script
         door = GameObject.Find("Door").GetComponent<Door>(); //Connects PlayerController to door script
         toScene = GameObject.Find("Portal").GetComponent<ToScene>(); //Connects to the To scene script
@@ -81,19 +83,34 @@ public class PlayerController : MonoBehaviour
             isOnGround = true;
         }
 
-        if (collision.gameObject.CompareTag("OutsideDoor")) //if the player is touching the outside door
+        else if (collision.gameObject.CompareTag("OutsideDoor")) //if the player is touching the outside door
         {
             outsideDoor.isMovingDown = true;
         }
 
-        if (collision.gameObject.CompareTag("Door")) //if the player is touching the inside door
+        else if (collision.gameObject.CompareTag("Door")) //if the player is touching the inside door
         {
             door.isMovingDown = true;
         }
 
-        if (collision.gameObject.CompareTag("To2")) //If player touches portal to next place
+        else if (collision.gameObject.CompareTag("LDoor")) //if the player is touching the locked door
+        {
+            lDoor.isMovingDown = true;
+        }
+
+        else if (collision.gameObject.CompareTag("Death")) //If player dies reseats to the begining.
+        {
+            toScene.SwitchSceneTo1();
+        }
+
+        else if (collision.gameObject.CompareTag("To2")) //If player touches portal to next place
         {
             toScene.SwitchSceneTo2();
+        }
+
+        else if (collision.gameObject.CompareTag("To3")) //If player touches portal to next place
+        {
+            toScene.SwitchSceneTo3();
         }
     }
 }
