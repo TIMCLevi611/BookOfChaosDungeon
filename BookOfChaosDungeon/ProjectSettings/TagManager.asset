@@ -12,6 +12,9 @@ TagManager:
   - Death
   - LDoor
   - FallingWater
+  - Red
+  - Blue
+  - Green
   layers:
   - Default
   - TransparentFX
