@@ -4,90 +4,67 @@ using UnityEngine;
 
 public class RotateLevers : MonoBehaviour
 {
-    private GameObject redLever;
-    private GameObject blueLever;
-    private GameObject greenLever;
     private Levers levers;
-    private Vector3 rotate;
-    private float spin;
 
     // Start is called before the first frame update
     void Start()
     {
-        redLever = GameObject.Find("Red");
-        blueLever = GameObject.Find("Blue");
-        greenLever = GameObject.Find("Green");
         levers = GetComponent<Levers>();
-        rotate = new Vector3(1, 0, 0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /**
+     * Rotates the Red lever
+     */
     public void RotateRed()
     {
-        if (levers.isRedUp)
+        if (gameObject.CompareTag("Red"))
         {
-            RotateDown();
-        }
-
-        else
-        {
-            RotateUp();
-        }
-    }
-
-    public void RotateGreen()
-    {
-        if(levers.isGreenUp)
-        {
-            RotateDown();
-        }
-
-        else
-        {
-            RotateUp();
-        }
-    }
-
-    public void RotateBlue()
-    {
-        if(levers.isBlueUp)
-        {
-            RotateDown();
-        }
-
-        else
-        {
-            RotateUp();
-        }
-    }
-
-    public void RotateDown()
-    {
-        spin = 1f;
-
-        for (float i = 0; i < 90; i++)
-        {
-            if (transform.rotation.x != 120)
+            if (levers.isRed) //If lever is facing up
             {
-                transform.Rotate(rotate * spin);
+                transform.Rotate(90, 0, 0);
+            }
+            
+            else //If the lever is facing down
+            {
+                transform.Rotate(-90, 0, 0);
             }
         }
     }
 
-    public void RotateUp()
+    /**
+     * Rotates the Green lever
+     */
+    public void RotateGreen()
     {
-        spin = -1f;
-
-        for (float i = 0; i < 90; i++)
+        if (gameObject.CompareTag("Green"))
         {
-            if (transform.rotation.x != 30)
+            if (levers.isGreen) //If lever is facing up
             {
-                transform.Rotate(rotate * spin);
+                transform.Rotate(90, 0, 0);
+            }
+
+            else //If the lever is facing down
+            {
+                transform.Rotate(-90, 0, 0);
+            }
+        }
+    }
+
+    /**
+     * Rotates the Blue lever
+     */
+    public void RotateBlue()
+    {
+        if (gameObject.CompareTag("Blue"))
+        {
+            if (levers.isBlue) //If lever is facing up
+            {
+                transform.Rotate(90, 0, 0);
+            }
+
+            else //If the lever is facing down
+            {
+                transform.Rotate(-90, 0, 0);
             }
         }
     }

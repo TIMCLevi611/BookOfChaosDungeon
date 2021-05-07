@@ -7,26 +7,32 @@ public class Levers : MonoBehaviour
     private MoveWaterUp moveWaterUp;
     private LockedDoor lockedDoor;
     private RotateLevers rotateLevers;
-    private bool isInteracted; //Has the player hit the wrong lever
+    public bool isInteracted; //Has the player hit the wrong lever
 
-    public bool isRedUp { get; set; } //Is the Red lever facing up
-    public bool isBlueUp { get; set; } //Is the Blue lever facing up
-    public bool isGreenUp { get; set; } //Is the Green lever facing up
+    public bool isRed { get; set; } //Is red lever facing up
+    public bool isGreen { get; set; } //Is the blue lever facing up
+    public bool isBlue { get; set; } //Is the Green lever facing up
+    public static bool isRedUp { get; set; } //Is the Red lever facing up
+    public static bool isBlueUp { get; set; } //Is the Blue lever facing up
+    public static bool isGreenUp { get; set; } //Is the Green lever facing up
 
     // Start is called before the first frame update
     void Start()
     {
         lockedDoor = GameObject.Find("LockDoor").GetComponent<LockedDoor>(); //Connects the locked door script to this script
         moveWaterUp = GameObject.Find("Pool").GetComponent<MoveWaterUp>(); //Connects the Move water script to this script
-        rotateLevers = GetComponent<RotateLevers>();
-        isInteracted = false;
+        rotateLevers = GetComponent<RotateLevers>(); //Connects the Rotate lever script to this script
+        isInteracted = false; 
+        isRedUp = true;
+        isBlueUp = true;
+        isGreenUp = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         ActivateWater();
-        UnlockDoor();
+        UpdateData();
     }
 
     /**
@@ -34,27 +40,20 @@ public class Levers : MonoBehaviour
      */
     private void ActivateWater()
     {
-        if (isInteracted)
+        if (isInteracted) //If the wrong lever has been clicked
         {
-            moveWaterUp.failed = true;
+            moveWaterUp.failed = true; //Make the water start moving up
         }
     }
 
     /**
-     * Unlocks the door if they hit the right levers.
+     * Updates the current data
      */
-    private void UnlockDoor()
+    private void UpdateData()
     {
-        if (isGreenUp && isBlueUp && isRedUp)
-        {
-            lockedDoor.isLocked = false;
-            Debug.Log("Unlock");
-        }
-
-        else 
-        {
-            lockedDoor.isLocked = true;
-        }
+        isRed = isRedUp;
+        isGreen = isGreenUp;
+        isBlue = isBlueUp;
     }
 
     /**
@@ -64,8 +63,11 @@ public class Levers : MonoBehaviour
     {
         if (gameObject.CompareTag("Red"))
         {
-            rotateLevers.RotateRed();
+            rotateLevers.RotateRed(); //Rotates the red lever
             
+            /*
+             * Changes the facing 
+             */
             if (isRedUp)
             {
                 isRedUp = false;
@@ -80,8 +82,11 @@ public class Levers : MonoBehaviour
 
         else if (gameObject.CompareTag("Blue"))
         {
-            rotateLevers.RotateBlue();
+            rotateLevers.RotateBlue(); //Rotates the blue lever
 
+            /*
+             * Changes the facing 
+             */
             if (isBlueUp)
             {
                 isBlueUp = false;
@@ -96,8 +101,11 @@ public class Levers : MonoBehaviour
 
         else if (gameObject.CompareTag("Green"))
         {
-            rotateLevers.RotateGreen();
-            
+            rotateLevers.RotateGreen(); //Rotates the green lever
+
+            /*
+             * Detects if a lever was pulled then changes it to show.
+             */
             if (isGreenUp)
             {
                 isGreenUp = false;

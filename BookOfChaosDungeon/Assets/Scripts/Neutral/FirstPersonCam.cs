@@ -50,7 +50,7 @@ public class FirstPersonCam : MonoBehaviour
      */
     public void FixedMousePosition()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) //If Escape key is pressed the cursor reappers
+        if (Input.GetKeyDown(KeyCode.Escape)) //If Escape key is pressed the cursor reappers
         {
             Cursor.lockState = CursorLockMode.None;
         }

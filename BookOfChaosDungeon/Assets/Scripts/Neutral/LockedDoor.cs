@@ -9,19 +9,18 @@ public class LockedDoor : MonoBehaviour
     private double limit;  //How far the door can go down
     
     public bool isLocked { get; set; } //Is the door locked
-    public bool locked;
     // Start is called before the first frame update
     void Start()
     {
-        limit = transform.position.y - 58.76929;
-        startPos = transform.position;
+        limit = transform.position.y - 58.76929; 
+        startPos = transform.position; //Where the door starts
+        isLocked = true; //Locks the door
     }
 
     // Update is called once per frame
     void Update()
     {
         MoveDown();
-        locked = isLocked;
     }
 
     /**
@@ -29,14 +28,20 @@ public class LockedDoor : MonoBehaviour
      */
     public void MoveDown()
     {
-        if (transform.position.y > limit && !isLocked) //If locked is false and hasn't hit limit
+        if (!isLocked) //If locked is false and hasn't hit limit
         {
-            transform.Translate(Vector3.down * speed * Time.deltaTime); //Moves the door
-        }
-
-        else
+            if (transform.position.y > limit) //If door higher then the limit
+            {
+                transform.Translate(Vector3.down * speed * Time.deltaTime); //Moves the door
+            } 
+        } 
+        
+        else //If door is locked
         {
-            transform.position = startPos;
+            if (transform.position.y < startPos.y) //If door is lower then the starting position
+            {
+                transform.Translate(Vector3.down * -speed * Time.deltaTime); //Moves the door
+            }
         }
     }
 }
