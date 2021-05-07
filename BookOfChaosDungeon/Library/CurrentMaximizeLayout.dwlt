@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 442}
   m_MaxSize: {x: 12004, y: 8042}
   vertical: 0
-  controlID: 10412
+  controlID: 3605
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 442}
   m_MaxSize: {x: 8003, y: 8042}
   vertical: 1
-  controlID: 10413
+  controlID: 3606
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 10414
+  controlID: 3607
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3266fbffac78fbff0284ffff66fbffff
+      m_ExpandedIDs: c490ffffb4a1ffffbab2ffff9ac3ffffa2d4ffff76e5ffffd8f6ffff66fbffff8e4d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -311,9 +311,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 64.53698, y: 17.234756, z: 31.38072}
+    m_Target: {x: 236.90025, y: -81.637566, z: -22.565948}
     speed: 2
-    m_Value: {x: 64.53698, y: 17.234756, z: 31.38072}
+    m_Value: {x: 236.90025, y: -81.637566, z: -22.565948}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -359,13 +359,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.40375504, y: -0.5760077, z: 0.39304566, w: 0.5924167}
+    m_Target: {x: 0.18929724, y: 0.54131085, z: -0.12622628, w: 0.8096192}
     speed: 2
-    m_Value: {x: 0.4037055, y: -0.5759371, z: 0.39299744, w: 0.59234405}
+    m_Value: {x: 0.18927196, y: 0.54123855, z: -0.12620941, w: 0.809511}
   m_Size:
-    m_Target: 10.072618
+    m_Target: 109.856224
     speed: 2
-    m_Value: 10.072618
+    m_Value: 109.856224
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -483,20 +483,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\lsnyder\4thQProject\BookOfChaosDungeon\BookOfChaosDungeon
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 20420000
-    m_LastClickedID: 16928
-    m_ExpandedIDs: 00000000e841000000ca9a3b
+    m_SelectedIDs: 06380000
+    m_LastClickedID: 14342
+    m_ExpandedIDs: 00000000fc37000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -524,7 +524,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e841000000ca9a3b
+    m_ExpandedIDs: 00000000fc37000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -549,9 +549,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 3a430000
-    m_LastClickedInstanceID: 17210
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 0876ffff
+    m_LastClickedInstanceID: -35320
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000ca380000503a000000000000fe360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -669,7 +669,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: 17210
+  m_LastInspectedObjectInstanceID: -35320
   m_LastVerticalScrollValue: 0
 --- !u!114 &15
 MonoBehaviour:

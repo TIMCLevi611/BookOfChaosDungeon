@@ -90,6 +90,11 @@ public class BetaPlayerController : MonoBehaviour
         {
             toScene.SwitchSceneTo3();
         }
+
+        else if (collision.gameObject.CompareTag("To4")) //If player touches portal to next place
+        {
+            toScene.SwitchSceneTo4();
+        }
     }
 
 }

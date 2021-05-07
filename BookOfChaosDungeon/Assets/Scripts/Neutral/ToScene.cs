@@ -40,4 +40,12 @@ public class ToScene : MonoBehaviour
     {
         SceneManager.LoadScene("Room2");
     }
+
+    /**
+     * Switches the scene to the next one.
+     */
+    public void SwitchSceneTo4()
+    {
+        SceneManager.LoadScene("Room3");
+    }
 }
