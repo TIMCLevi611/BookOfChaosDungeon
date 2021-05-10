@@ -81,6 +81,11 @@ public class BetaPlayerController : MonoBehaviour
             isOnGround = true;
         }
 
+        else if (collision.gameObject.CompareTag("Death")) //If player dies changes scene to death scene.
+        {
+            toScene.SwitchSceneToDeath();
+        }
+
         else if (collision.gameObject.CompareTag("To2")) //If player touches portal to next place
         {
             toScene.SwitchSceneTo2();
@@ -94,6 +99,11 @@ public class BetaPlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("To4")) //If player touches portal to next place
         {
             toScene.SwitchSceneTo4();
+        }
+       
+        else if (collision.gameObject.CompareTag("To5")) //If player touches portal to next place
+        {
+            toScene.SwitchSceneTo5();
         }
     }
 

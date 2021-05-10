@@ -18,6 +18,21 @@ public class ToScene : MonoBehaviour
     }
 
     /**
+     * Switches the scene to the death scene
+     */
+    public void SwitchSceneToDeath()
+    {
+        SceneManager.LoadScene("Death");
+    }
+     /**
+      * Switches the scene to the title scene
+      */
+    public void SwitchSceneToTitle()
+    {
+        SceneManager.LoadScene("Title");
+    }
+
+    /**
      * Switches the scene to the next one.
      */
     public void SwitchSceneTo1()
@@ -47,5 +62,13 @@ public class ToScene : MonoBehaviour
     public void SwitchSceneTo4()
     {
         SceneManager.LoadScene("Room3");
+    }
+
+    /**
+     * Switches the scene to the next one.
+     */
+    public void SwitchSceneTo5()
+    {
+        SceneManager.LoadScene("Room4");
     }
 }
