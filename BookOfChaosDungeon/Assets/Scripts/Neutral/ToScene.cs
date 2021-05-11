@@ -69,6 +69,6 @@ public class ToScene : MonoBehaviour
      */
     public void SwitchSceneTo5()
     {
-        SceneManager.LoadScene("Room4");
+        SceneManager.LoadScene("End");
     }
 }

@@ -20,7 +20,7 @@ public class BetaPlayerController : MonoBehaviour
         camra.transform.Translate(transform.position + camraOffset); //Sets starting position of the camra
         this.GetComponent<MeshRenderer>().enabled = false; //Makes player invisible
         toScene = GameObject.Find("Portal").GetComponent<ToScene>(); //Connects to the To scene script
-        jumpVelocity = 10.0f;
+        jumpVelocity = 5.0f;
     }
 
     // Update is called once per frame

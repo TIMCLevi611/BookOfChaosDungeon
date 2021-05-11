@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Room3.unity
     guid: 9e2e493e26549be46bdfeec5013ab1c1
   - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 786559361d4cb0144948b8e71ac8165d
+  - enabled: 1
     path: Assets/Scenes/Death.unity
     guid: f5ae53455955fd143ac6661734438acc
   - enabled: 1
