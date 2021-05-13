@@ -67,7 +67,7 @@ public class ToScene : MonoBehaviour
     /**
      * Switches the scene to the next one.
      */
-    public void SwitchSceneTo5()
+    public void SwitchSceneToEnd()
     {
         SceneManager.LoadScene("End");
     }

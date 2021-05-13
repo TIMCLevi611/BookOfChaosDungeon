@@ -17,6 +17,8 @@ TagManager:
   - Green
   - To4
   - To5
+  - End
+  - Book
   layers:
   - Default
   - TransparentFX
