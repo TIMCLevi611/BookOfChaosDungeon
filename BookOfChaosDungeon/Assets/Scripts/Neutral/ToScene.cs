@@ -18,6 +18,14 @@ public class ToScene : MonoBehaviour
     }
 
     /**
+     * Switches the scene to the win scene
+     */
+    public void SwitchSceneToWin()
+    {
+        SceneManager.LoadScene("Win");
+    }
+
+    /**
      * Switches the scene to the death scene
      */
     public void SwitchSceneToDeath()

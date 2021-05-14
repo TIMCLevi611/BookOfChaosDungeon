@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class EndAlphaPlayerController : MonoBehaviour
 {
+    private RotateCircles gameOver;
+    private ToScene toScene;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        toScene = GameObject.Find("Teleporter").GetComponent<ToScene>(); //Connects scripts
+        gameOver = GameObject.Find("Enchantment").GetComponent<RotateCircles>(); //Connects scripts
     }
 
     // Update is called once per frame
@@ -16,11 +20,14 @@ public class EndAlphaPlayerController : MonoBehaviour
         
     }
 
-    private void OnMouseDown()
+    private void OnCollisionEnter(Collision collision)
     {
-        if (gameObject.CompareTag("Book"))
+        if (gameOver.isGameOver) //If player touches portal to next place
         {
-            Destroy(GameObject.Find("BookOfChaos")); 
+            if (collision.gameObject.CompareTag("Right"))
+            {
+                toScene.SwitchSceneToWin();
+            }
         }
     }
 }

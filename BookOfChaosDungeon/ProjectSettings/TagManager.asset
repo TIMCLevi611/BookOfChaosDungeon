@@ -19,6 +19,8 @@ TagManager:
   - To5
   - End
   - Book
+  - Left
+  - Right
   layers:
   - Default
   - TransparentFX
