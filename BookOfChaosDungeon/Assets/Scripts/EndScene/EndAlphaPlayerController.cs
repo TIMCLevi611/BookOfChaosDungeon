@@ -22,11 +22,11 @@ public class EndAlphaPlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (gameOver.isGameOver) //If player touches portal to next place
+        if (gameOver.isGameOver) //If player touches the circle to win the game
         {
             if (collision.gameObject.CompareTag("Right"))
             {
-                toScene.SwitchSceneToWin();
+                toScene.SwitchSceneToWin(); //Changes it to the win screen.
             }
         }
     }

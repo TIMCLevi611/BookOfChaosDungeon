@@ -71,10 +71,12 @@ public class BetaPlayerController : MonoBehaviour
         }
     }
 
-
+    /**
+     * Restarts the level when R is hit
+     */
     public void RestartLevel()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R)) //If player hits R
         {
            toScene.RestartLevel();
         }
@@ -95,22 +97,22 @@ public class BetaPlayerController : MonoBehaviour
             toScene.SwitchSceneToDeath();
         }
 
-        else if (collision.gameObject.CompareTag("To2")) //If player touches portal to next place
+        else if (collision.gameObject.CompareTag("To2")) //If player touches portal to next Room
         {
             toScene.SwitchSceneTo2();
         }
 
-        else if (collision.gameObject.CompareTag("To3")) //If player touches portal to next place
+        else if (collision.gameObject.CompareTag("To3")) //If player touches portal to next Room
         {
             toScene.SwitchSceneTo3();
         }
 
-        else if (collision.gameObject.CompareTag("To4")) //If player touches portal to next place
+        else if (collision.gameObject.CompareTag("To4")) //If player touches portal to next Room
         {
             toScene.SwitchSceneTo4();
         }
 
-        else if (collision.gameObject.CompareTag("End")) //If player touches portal to next place
+        else if (collision.gameObject.CompareTag("End")) //If player touches portal to next Room
         {
             toScene.SwitchSceneToEnd();
         }

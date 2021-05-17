@@ -8,7 +8,6 @@ public class MoveWaterUpEnd : MonoBehaviour
     private Vector3 Falling1Location; //Where Falling 1 starts in the scene
     private GameObject Falling2;
     private Vector3 Falling2Location; //Where Falling 2 starts in the scene
-    //private Vector3 offset = new Vector3(0, -60, 0); //Makes the water loop
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +25,7 @@ public class MoveWaterUpEnd : MonoBehaviour
     }
 
     /**
-     * Moves the water up then moves falling water back to begining
+     * Moves the water to before it fell
      */
     private void MoveTheWaterUp()
     {
@@ -36,7 +35,7 @@ public class MoveWaterUpEnd : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("FallingWater"))
+        if (collision.gameObject.CompareTag("FallingWater")) //If the water hits the trigger
         {
             MoveTheWaterUp();
         }

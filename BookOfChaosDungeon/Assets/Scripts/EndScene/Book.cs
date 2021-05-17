@@ -6,6 +6,7 @@ public class Book : MonoBehaviour
 {
     private RotateCircles gameOver;
     private RotateCircles gameOver2;
+    private Vector3 outOfScene = new Vector3(0, 100, 0); //Vector 3 that is outside of the scene.
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class Book : MonoBehaviour
 
     private void OnMouseDown()
     {
-        transform.Translate(new Vector3(0, 100, 0)); //Moves the book out of the scene
+        transform.Translate(outOfScene); //Moves the book out of the scene
         gameOver.isGameOver = true; //Makes the circles move
         gameOver2.isGameOver = true; //Makes the circles move
     }
