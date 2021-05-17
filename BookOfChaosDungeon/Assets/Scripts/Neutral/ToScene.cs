@@ -18,6 +18,14 @@ public class ToScene : MonoBehaviour
     }
 
     /**
+     * Restarts Level
+     */
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    /**
      * Switches the scene to the win scene
      */
     public void SwitchSceneToWin()

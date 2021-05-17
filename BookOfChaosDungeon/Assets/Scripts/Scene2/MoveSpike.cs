@@ -12,7 +12,7 @@ public class MoveSpike : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GameObject.Find("DeathTrigger").GetComponent<MeshRenderer>().enabled = false; //Makes the trigger invisible
     }
 
     // Update is called once per frame

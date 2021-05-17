@@ -28,6 +28,7 @@ public class BetaPlayerController : MonoBehaviour
     {
         MovePlayer();
         MoveCamra();
+        RestartLevel();
     }
 
 
@@ -71,6 +72,14 @@ public class BetaPlayerController : MonoBehaviour
     }
 
 
+    public void RestartLevel()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+           toScene.RestartLevel();
+        }
+    }
+
     /**
      * If player collieds with stuff
      */
@@ -99,6 +108,11 @@ public class BetaPlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("To4")) //If player touches portal to next place
         {
             toScene.SwitchSceneTo4();
+        }
+
+        else if (collision.gameObject.CompareTag("End")) //If player touches portal to next place
+        {
+            toScene.SwitchSceneToEnd();
         }
     }
 

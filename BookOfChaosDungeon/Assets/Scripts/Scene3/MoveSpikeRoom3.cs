@@ -12,7 +12,7 @@ public class MoveSpikeRoom3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GameObject.Find("DeathTrigger").GetComponent<MeshRenderer>().enabled = false; //Makes the trigger invisible
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class MoveSpikeRoom3 : MonoBehaviour
             MoveDown();
         }
 
-        else if (transform.position.z > zLimit) //If haven't hit z limit moves spike fowards
+        else if (transform.position.z < zLimit) //If haven't hit z limit moves spike fowards
         {
             MoveLeft();
         }
