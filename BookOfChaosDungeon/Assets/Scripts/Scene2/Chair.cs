@@ -23,6 +23,6 @@ public class Chair : MonoBehaviour
      */
     private void OnMouseDown()
     {
-        lockedDoor.isLocked = false; 
+        lockedDoor.isLocked = false;  //Unlocks the door
     }
 }

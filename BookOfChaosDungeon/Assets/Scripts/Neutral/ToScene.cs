@@ -5,18 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ToScene : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     /**
      * Restarts Level
      */
@@ -40,6 +28,7 @@ public class ToScene : MonoBehaviour
     {
         SceneManager.LoadScene("Death");
     }
+
      /**
       * Switches the scene to the title scene
       */
@@ -49,7 +38,7 @@ public class ToScene : MonoBehaviour
     }
 
     /**
-     * Switches the scene to the next one.
+     * Switches the scene to the outside scene.
      */
     public void SwitchSceneTo1()
     {
@@ -57,7 +46,7 @@ public class ToScene : MonoBehaviour
     }
 
     /**
-     * Switches the scene to the next one.
+     * Switches the scene to the Levers scene.
      */
     public void SwitchSceneTo2()
     {
@@ -65,7 +54,7 @@ public class ToScene : MonoBehaviour
     }
 
     /**
-     * Switches the scene to the next one.
+     * Switches the scene to the chair scene.
      */
     public void SwitchSceneTo3()
     {
@@ -73,7 +62,7 @@ public class ToScene : MonoBehaviour
     }
 
     /**
-     * Switches the scene to the next one.
+     * Switches the scene to the parkor scene.
      */
     public void SwitchSceneTo4()
     {
@@ -81,7 +70,7 @@ public class ToScene : MonoBehaviour
     }
 
     /**
-     * Switches the scene to the next one.
+     * Switches the scene to the Book of Chaos scene.
      */
     public void SwitchSceneToEnd()
     {

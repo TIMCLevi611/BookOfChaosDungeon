@@ -11,11 +11,19 @@ public class BetterJumping : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>(); //Connects the rigid body
     }
 
     // Update is called once per frame
     void Update()
+    {
+        Jump();
+    }
+
+    /**
+     * Make the gravity diffrent based on how long they hit the space bar
+     */
+    private void Jump()
     {
         if (rb.velocity.y < 0) //if player is starting to fall
         {

@@ -21,6 +21,8 @@ TagManager:
   - Book
   - Left
   - Right
+  - Water
+  - Chair
   layers:
   - Default
   - TransparentFX

@@ -8,11 +8,13 @@ public class MoveSpikeRoom3 : MonoBehaviour
     private float zLimit = 10; //How far the spike will go
     private float downSpeed = 5f; //How fast it moves
     private float fowardSpeed = 10f; //How fast it goes
+    private SoundManager sound;
 
     // Start is called before the first frame update
     void Start()
     {
         GameObject.Find("DeathTrigger").GetComponent<MeshRenderer>().enabled = false; //Makes the trigger invisible
+        sound = GetComponent<SoundManager>(); //Connects the sound manager to this script
     }
 
     // Update is called once per frame
@@ -26,6 +28,9 @@ public class MoveSpikeRoom3 : MonoBehaviour
      */
     public void Move()
     {
+
+        sound.PlaySpikeMoving(); //Plays the spike moving sound
+
         if (transform.position.y > yLimit) //If havent hit y limit moves spike down
         {
             MoveDown();

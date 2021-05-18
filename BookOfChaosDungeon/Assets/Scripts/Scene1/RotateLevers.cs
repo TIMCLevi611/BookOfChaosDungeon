@@ -5,11 +5,13 @@ using UnityEngine;
 public class RotateLevers : MonoBehaviour
 {
     private Levers levers;
+    private SoundManager sound;
 
     // Start is called before the first frame update
     void Start()
     {
-        levers = GetComponent<Levers>();
+        levers = GetComponent<Levers>(); //Connects the levers script to this one
+        sound = GetComponent<SoundManager>(); //Connects the sound manager to this script
     }
 
     /**
@@ -17,6 +19,8 @@ public class RotateLevers : MonoBehaviour
      */
     public void RotateRed()
     {
+        sound.PlayLeverBeingPulled(); //Plays the lever being pulled sound
+
         if (gameObject.CompareTag("Red"))
         {
             if (levers.isRed) //If lever is facing up
@@ -36,6 +40,8 @@ public class RotateLevers : MonoBehaviour
      */
     public void RotateGreen()
     {
+        sound.PlayLeverBeingPulled(); //Plays the lever being pulled sound
+
         if (gameObject.CompareTag("Green"))
         {
             if (levers.isGreen) //If lever is facing up
@@ -55,6 +61,8 @@ public class RotateLevers : MonoBehaviour
      */
     public void RotateBlue()
     {
+        sound.PlayLeverBeingPulled(); //Plays the lever being pulled sound
+
         if (gameObject.CompareTag("Blue"))
         {
             if (levers.isBlue) //If lever is facing up

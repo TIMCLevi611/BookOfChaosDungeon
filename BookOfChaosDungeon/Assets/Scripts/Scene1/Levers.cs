@@ -57,16 +57,16 @@ public class Levers : MonoBehaviour
     }
 
     /**
-     * Detects if a lever was pulled then changes it to show.
+     * Detects if a lever was pulled then rotates it.
      */
     private void OnMouseDown()
     {
-        if (gameObject.CompareTag("Red"))
+        if (gameObject.CompareTag("Red")) //If red was clicked
         {
             rotateLevers.RotateRed(); //Rotates the red lever
             
             /*
-             * Changes the facing 
+             * Changes the direction it is facing 
              */
             if (isRedUp)
             {
@@ -80,12 +80,12 @@ public class Levers : MonoBehaviour
             } 
         }
 
-        else if (gameObject.CompareTag("Blue"))
+        else if (gameObject.CompareTag("Blue")) //If blue is clicked
         {
             rotateLevers.RotateBlue(); //Rotates the blue lever
 
             /*
-             * Changes the facing 
+             * Changes the direction it is facing 
              */
             if (isBlueUp)
             {
@@ -99,12 +99,12 @@ public class Levers : MonoBehaviour
             }
         }
 
-        else if (gameObject.CompareTag("Green"))
+        else if (gameObject.CompareTag("Green")) //If green is clicked
         {
             rotateLevers.RotateGreen(); //Rotates the green lever
 
             /*
-             * Detects if a lever was pulled then changes it to show.
+             * Changes the direction it is facing 
              */
             if (isGreenUp)
             {

@@ -13,6 +13,14 @@ public class UnlockMouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UnlockTheMouse();
+    }
+
+    /**
+     * Unlocks the mouse
+     */
+    public void UnlockTheMouse()
+    {
         Cursor.lockState = CursorLockMode.None; //Unlocks the mouse in the inbetween scenes.
     }
 }

@@ -6,13 +6,15 @@ public class MoveSpike : MonoBehaviour
 {
     private float yLimit = -7.7f; //How low the spike can go
     private float zLimit = -120; //How far the spike will go
-    private float downSpeed = 5f; //How fast it moves
-    private float fowardSpeed = 10f; //How fast it goes
+    private float downSpeed = 5f; //How fast it moves down
+    private float fowardSpeed = 10f; //How fast it goes forward
+    private SoundManager sound;
 
     // Start is called before the first frame update
     void Start()
     {
         GameObject.Find("DeathTrigger").GetComponent<MeshRenderer>().enabled = false; //Makes the trigger invisible
+        sound = GetComponent<SoundManager>(); //Connects the sound manager to this script
     }
 
     // Update is called once per frame
@@ -26,6 +28,8 @@ public class MoveSpike : MonoBehaviour
      */
     public void Move()
     {
+        sound.PlaySpikeMoving(); //Plays the spike moving sound
+
         if (transform.position.y > yLimit) //If havent hit y limit moves spike down
         {
             MoveDown();

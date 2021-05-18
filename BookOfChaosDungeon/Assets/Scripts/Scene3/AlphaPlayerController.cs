@@ -9,7 +9,7 @@ public class AlphaPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        door = GameObject.Find("Door").GetComponent<Door>(); //Connects PlayerController to door script
+        door = GameObject.Find("Door").GetComponent<Door>(); //Connects PlayerController to this script
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class AlphaPlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Door")) //if the player is touching the inside door
         {
-            door.isMovingDown = true;
+            door.isMovingDown = true; //Makes the door move down
         }
     }
 

@@ -10,9 +10,10 @@ public class MoveWaterUp : MonoBehaviour
     private Vector3 Falling2Location; //Where Falling 2 starts in the scene
     private GameObject Falling3;
     private Vector3 Falling3Location; //Where Falling 3 starts in the scene
-    public bool failed; //Did the play pull a wrong lever
-    private float speed = 3f;
+    public bool failed; //Did the player pull a wrong lever
+    private float speed = 3f; //How fast the water moves
     private Vector3 offset = new Vector3(0, -60, 0); //Makes the water loop
+    private SoundManager sound;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,8 @@ public class MoveWaterUp : MonoBehaviour
         Falling2Location = Falling2.transform.position; //Records the starting position of the water.
         Falling3 = GameObject.Find("FallingWaterChecker"); //Connects Falling3 to Falling water checker.
         Falling3Location = Falling3.transform.position; //Records the starting position of the water.
-        failed = false; //Sets failed to false automaticly
+        failed = false;
+        sound = GetComponent<SoundManager>(); //Connects the sound manager to this script
     }
 
     // Update is called once per frame
@@ -37,7 +39,7 @@ public class MoveWaterUp : MonoBehaviour
      */
     private void MoveTheWaterUp()
     {
-        if (failed)
+        if (failed) //If player has hit the wrong lever
         {
             transform.Translate(Vector3.up * speed *  Time.deltaTime); //Moves the water on the y axis
         }
@@ -47,10 +49,14 @@ public class MoveWaterUp : MonoBehaviour
         Falling3.transform.position = Falling3Location + offset; //Moves falling water to the begining
     }
 
+    /**
+     * If the water is inside the pond
+     */
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("FallingWater"))
+        if (collision.gameObject.CompareTag("FallingWater")) //If the falling water touches the water on the ground
         {
+            sound.PlayWaterFalling(); //Plays the water falling sound.
             MoveTheWaterUp();
         }
     }

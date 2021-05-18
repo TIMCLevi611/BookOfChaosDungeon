@@ -38,7 +38,7 @@ public class FirstPersonCam : MonoBehaviour
     }
 
     /**
-     * Makes it so the collider doesn't move on any axis but y
+     * Makes it so the collider doesn't move on any other axis but y
      */
     public void FixedPlayerCollider()
     {

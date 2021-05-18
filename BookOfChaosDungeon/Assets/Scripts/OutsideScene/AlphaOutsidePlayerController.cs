@@ -20,6 +20,9 @@ public class AlphaOutsidePlayerController : MonoBehaviour
         
     }
 
+    /**
+     * If player collides with stuff
+     */
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("OutsideDoor")) //if the player is touching the outside door
